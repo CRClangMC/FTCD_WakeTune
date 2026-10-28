@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+    <title>投稿账户注册</title>
+</head>
+
+<body> 
+  <div>
+    <div>
+      <form action="/access/" method="POST">  
+          <div id="insertinfo">
+            <div id="div_title">
+              <span id="p_title">注册您的投稿账户</span>
+            </div>
+            <table border="0" id="table_stu_in">
+                <tr>
+                  <td >用户名（请记牢你的用户名以便下次登录）：&nbsp;&nbsp;</td>
+                  <td style="text-align: left;width:160px;">
+                      <input name="txtuser" type="text" required id="txtuser" class="stu_in">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;width:10px;">密码：&nbsp;&nbsp;</td>
+                  <td style="text-align: left;width:160px;">    
+                      <input name="txtpwd" type="password" required id="txtpwd" class="stu_in">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;width:10px;">确认密码：&nbsp;&nbsp;</td>
+                  <td style="text-align: left;width:160px;">    
+                      <input name="txtpwd2" type="password" required id="txtpwd2" class="stu_in">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;width:460px;" colspan="3"> 
+                    {% if user %}
+                      <font color="#FF0000">  {{warn}} </font>
+                    {% endif %}
+                 </td>
+              </tr>
+              <tr>
+                <td style="text-align: right;width:80px;height: 80px;">&nbsp;</td>
+                <td style="text-align: left;width:280px;">
+                <input type="submit" name="btnLogin" id="btnLogin" value="注册并登录" class="btn_submit">
+                </td>
+              </tr>
+        </table> 
+        
+    </div>
+    
+  </form>
+  
+      <div> 
+         <p id="p_copyright">Copyright © 2024 MyLibrary All Rights Reserved. FTCD studio版权所有</p>
+      </div>
+  </div>
+      
+</div>
+</body>
+</html>

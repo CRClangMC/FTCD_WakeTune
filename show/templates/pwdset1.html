@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+    <title>密码修改</title>
+</head>
+
+<body> 
+  <div>
+    <div>
+      <form action="/pwdset1/" method="POST">  
+          <div id="insertinfo">
+            <div id="div_title">
+              <span id="p_title">修改您的管理员账号密码</span>
+            </div>
+            <table border="0" id="table_stu_in">
+                <tr>
+                  <td style="text-align: right;width:10px;">新密码：</td>
+                  <td style="text-align: left;width:170px;">    
+                      <input name="txtpwd" type="text" required id="txtpwd" class="stu_in">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;width:10px;">确认新密码：</td>
+                  <td style="text-align: left;width:170px;">    
+                      <input name="txtpwd2" type="text" required id="txtpwd2" class="stu_in">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;width:460px;" colspan="3"> 
+                    {% if user %}
+                      <font color="#FF0000">  {{warn}} </font>
+                    {% endif %}
+                 </td>
+              </tr>
+              <tr>
+                <td style="text-align: right;width:80px;height: 80px;">&nbsp;</td>
+                <td style="text-align: left;width:280px;">
+                <input type="submit" name="btnLogin" id="btnLogin" value="修改并重新登录" class="btn_submit">
+                </td>
+              </tr>
+        </table> 
+        
+    </div>
+    
+  </form>
+  
+      <div> 
+         <p id="p_copyright">Copyright © 2024 FTCD All Rights Reserved. FTCD studio版权所有</p>
+      </div>
+  </div>
+      
+</div>
+</body>
+</html>

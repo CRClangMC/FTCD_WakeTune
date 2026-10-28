@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+  <title>投稿系统管理员</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/mylibrary.css">
+
+  <style>
+  table tbody {
+      display:block;
+      height: 400px;
+      overflow-y:scroll;
+  }
+
+  table thead, tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+  }
+
+  table thead {
+      width: calc( 100% - 1em )
+  }
+  table thead th{ background:#ccc;}
+  </style> 
+</head>
+<body>
+  <div id="container">
+    <div id="content_form">
+       <form action="/adminset/" method="POST">
+        <div id="banner1">          
+            <img src="/static/images/logo_library.png" id="img_logo" >
+            <span style="color: white">FTCD studio</span> 
+        </div>
+        <div id="banner2">
+            <table cellspacing="0" cellpadding="0" border="0" width="1000">
+                <tr>
+                    <td width="400" align="right">
+                        <span id="txt_banner2" style="color: white;">管理员操作界面</span>                       
+                    </td>
+                    <td width="600" align="right">
+                       <span id="txt_banner3" style="color: white; font-size: 20px;">今日：{{today}} &nbsp;&nbsp;&nbsp;</span>
+                    </td>
+                </tr>
+            </table>         
+          
+        </div>
+        <div id="navigator">
+          <ul id="nav">
+            <li id="li_navigator"><a href="/pwdset1">密码修改</a> </li>             
+          </ul>                 
+        </div>
+        <tr>
+          <td style="text-align: center;width:360px;" colspan="2"> 
+           {% if user %}
+              <font color="#FF0000">  {{warn}} </font>
+           {% endif %}
+         </td>
+        </tr>
+        <div id="search">
+          <div id="sub_search">
+            <span>歌名：</span>
+            <input name="mname" type="text"  id="mname">
+            <input type="submit" name="ss" id="ss" value="搜&nbsp;&nbsp;索" />
+            <input type="submit" name="gs" id="gs" value="过&nbsp;&nbsp;审" />
+            <input type="submit" name="sc" id="sc" value="删&nbsp;&nbsp;除" />
+            <input type="submit" name="sb" id="sb" value="锁&nbsp;&nbsp;榜" />
+            <input type="submit" name="sx" id="sx" value="刷&nbsp;&nbsp;新" />
+          </div>         
+        </div>        
+          <table cellpadding="0" cellspacing="0" id="table_to_Borrow" width="80%" border="1">
+            <tr> 
+                <td id="td_title"  colspan="6"> 
+                    &nbsp;&nbsp;已有歌曲
+                </td> 
+             
+            </tr> 
+            <tr> 
+                <td style="width:50px;"> 
+                    选择
+                </td> 
+                <td style="width:150px;"><span>歌名</span> </td> 
+                <td style="width:150px;"><span>歌手</span> </td> 
+                <td style="width:150px;"><span>投票</span> </td>
+                <td style="width:150px;"><span>音乐试听</span> </td>  
+            </tr>
+
+              {% for book in music_list %}
+              <tr> 
+                  <td style="width:50px;"> 
+                      <input type="checkbox" name="checkbox" value="{{book.mname}}" />
+                  </td> 
+                  <td style="width:150px;"><span>{{book.mname}}</span> </td> 
+                  <td style="width:150px;">{{book.singer}} </td> 
+                  <td style="width:150px;">{{book.tpnum}} </td>
+                  <td style="width:150px;"><a href="https://y.qq.com/n/ryqq/search?w={{book.mname}}-{{book.singer}}&t=song&remoteplace=txt.yqq.top">QQ音乐</a>&nbsp;&nbsp;<a href="https://music.163.com/#/search/m/?s={{book.mname}}-{{book.singer}}&type=1">网易云音乐</a></td> 
+              </tr>
+              {% endfor %}
+            </table>
+        
+                    
+          </form>
+        <div id="copyright"> 
+            <p id="p_copyright">Copyright © 2024 FTCD All Rights Reserved. FTCD studio版权所有</p>
+        </div>
+      </div>
+      
+</div>
+</body>
+</html>

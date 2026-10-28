@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投稿账户注册</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form action="/accessph2/" method="POST">
+        <label for="phone">注册您的投稿账户</label><br/>
+        <label for="phone">请输入发送至您手机的验证码：</label>
+        <input type="text" id="yzm" name="yzm" placeholder="请输入验证码">
+        <button type="submit" id="wc" name="wc">完成</button>
+        <button type="submit" id="re" name="re">重新填写手机号</button>
+            {% if warn %}
+            <font color="#FF0000">  {{warn}} </font>
+            {% endif %}
+    </form>
+</body>
+</html>
